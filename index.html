@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>VT : Typescript</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/white.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/reveal.js/3.0.0/lib/css/zenburn.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="splash">
+            <div class="content">
+                <img data-src="https://raw.githubusercontent.com/remojansen/logo.ts/master/ts.png">
+            </div>
+            <p><small> trjili - <strong>Galilée</strong></small></p>
+        </section>
+        <section>
+            <h3 class="title">Sommaire</h3>
+            <div class="content">
+                <ol>
+                    <li class="main">Présentation</li>
+                    <li class="main">Pourquoi typescript ?</li>
+                    <li class="main">Fonctionnalités</li>
+                    <li class="main">Installation et compilation</li>
+                    <li class="main">Les types de base</li>
+                    <li class="main">Interfaces</li>
+                    <li class="main">Classes</li>
+                    <li class="main">Modules</li>
+                    <li class="main">Les fonctions</li>
+                    <li class="main">Decorateurs</li>
+                    <li class="main">Exemples</li>
+                    <li class="main">Les alternatives</li>
+                </ol>
+            </div>
+        </section>
+        <section>
+            <section>
+                <h4 class="title">Présentation</h4>
+                <div class="content">
+                    <ul>
+                        <li class="main">Language transcompilé en javascript</li>
+                        <li class="main">Developpée par microsoft, Anders Hejlsberg</li>
+                        <li class="main">Open source, code disponible sur github</li>
+                        <li class="main">Première version stable sortie en février 2012</li>
+                        <li class="main">Dernière version 2.0.5</li>
+                        <li class="main">Utilisée dans angular 2.0, nativescript...</li>
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h4 class="title">Pourquoi typescript ?</h4>
+                <div class="content">
+                    <ul>
+                        <li class="main">Disposer des futures fonctionnalités du javascript (classes, decorators..)</li>
+                        <li class="main">Compilation vers es3, es5, es6 </li>
+                        <li class="main">Typage statique</li>
+                        <li class="main">Facilité de réutilisabilité de code</li>
+                        <li class="main">Développement modulaire</li>
+                        <li class="main">Permet de faire des application sacalables</li>
+                        <li class="main">Un code javascript est un code typescript valide ( migration à coût 0)</li>
+                    </ul>
+                </div>
+            </section>
+
+        </section>
+        <section>
+            <section>
+                <h4 class="title">Installation</h4>
+                <div class="content">
+    <pre>
+        <code>
+            $ npm install -g typescript
+            $ tsc monScript.ts
+        </code>
+    </pre>
+                </div>
+            </section>
+        </section>
+        <section>
+            <h3 class="title">Type de base</h3>
+            <div class="content">
+                <ul>
+                    <li class="main">Boolean</li>
+                    <li class="main">Number</li>
+                    <li class="main">String</li>
+                    <li class="main">Array</li>
+                    <li class="main">Enum</li>
+                    <li class="main">Any</li>
+                    <li class="main">Void</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h3>Interfaces</h3>
+            <div class="content">
+
+    <pre>
+        <code>
+    interface User {
+        firstName: string;
+        age : number;
+        phoneNumber ?: number;
+    }
+        </code>
+    </pre>
+            </div>
+        </section>
+        <section>
+            <h3>Classes</h3>
+            <div class="content">
+
+    <pre>
+        <code>
+    class User implements {
+        firstName: string;
+        age : number;
+        constructor(firstName: string, age: number) {
+            this.firstName = firstName;
+            this.age = age;
+        }
+
+        render() {
+            console.log(` fistName : ${this.firstName}, Age : ${this.age}.`);
+        }
+    }
+        </code>
+    </pre>
+            </div>
+        </section>
+        <section>
+        <section>
+            <h3>Modules - Export</h3>
+            <div class="content">
+
+    <pre>
+        <code>
+    export class User implements {
+        firstName: string;
+        age : number;
+        constructor(firstName: string, age: number) {
+            this.firstName = firstName;
+            this.age = age;
+        }
+    }
+        </code>
+    </pre>
+            </div>
+        </section>
+        <section>
+            <h3>Modules - Import</h3>
+            <div class="content">
+
+    <pre>
+        <code>
+    import {User} from './User';
+    let user = new User();
+        </code>
+    </pre>
+            </div>
+        </section>
+        </section>
+        <section>
+            <h3>Fonctions</h3>
+            <div class="content">
+
+    <pre>
+        <code>
+    function sum(number : a, number b) : number {
+        return a+b;
+    }
+
+    function render(string  : message) : void {
+        console.log(message);
+    }
+
+    let sum = (number x) => x++;
+
+
+
+        </code>
+    </pre>
+            </div>
+        </section>
+        <section>
+            <h3>Decorators</h3>
+            <div class="content">
+
+    <pre>
+        <code>
+    @sealed()        
+    class Component {
+        constructor(public template : string)
+    }
+
+    function sealed(constructor: Function) {
+        Object.seal(constructor);
+        Object.seal(constructor.prototype);
+    }
+    
+
+        </code>
+    </pre>
+            </div>
+        </section>
+        <section>
+            <h3>Alternatives</h3>
+            <div class="content">
+                <ul>
+                    <li>Coffescript</li>
+                    <li>Dart</li>
+                    <li>Babel</li>
+                </ul>
+            </div>
+        </section>
+        </section>
+    </div>
+</div>
+<script src="//cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="//cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.min.js"></script>
+<script>
+    Reveal.initialize({
+        dependencies: [{
+            src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/highlight/highlight.js',
+            async: true,
+            callback: function() {
+                hljs.initHighlightingOnLoad();
+            }
+        }]
+    });
+</script>
+</body>
+</html>
